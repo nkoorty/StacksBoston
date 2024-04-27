@@ -53,6 +53,10 @@
     )
 )
 
+(define-read-only (get-stream (id uint))
+    (unwrap-panic (map-get? streams id)
+))
+
 ;; increase locked stx balance for a stream
 (define-public (refuel
     (stream-id uint)
