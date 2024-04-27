@@ -7,6 +7,11 @@ cache_dir = './.cache'
 
 [[project.requirements]]
 contract_id = 'SP3FBR2AGK5H9QBDH3EEN6DF8EK8JY7RX8QJ5SVTE.sip-010-trait-ft-standard'
+[contracts.addressBook]
+path = 'contracts/addressBook.clar'
+clarity_version = 2
+epoch = 2.5
+
 [contracts.clarity-bitcoin-mini]
 path = 'contracts/clarity-bitcoin-mini.clar'
 clarity_version = 2
