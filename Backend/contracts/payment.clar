@@ -3,6 +3,7 @@
 (define-constant ERR_INVALID_PAYMENT (err u1))
 (define-constant ERR_PAYMENT_NOT_DUE (err u2))
 (define-constant ERR_PAYMENT_PLAN_NOT_FOUND (err u3))
+(define-constant ERR_TOKEN_TRANSFER_FAILED (err u1001))
 
 ;; Data vars
 (define-data-var latest-plan-id uint u0)
@@ -38,6 +39,8 @@
         (initial-remaining-balance (- total-purchase-amount down-payment))
         (initial-next-due-block (+ block-height blocks-per-instalment))
     )
+        ;; Attempt to transfer the down-payment using the .sbtc token
+        (try! (contract-call? .sbtc transfer down-payment tx-sender (as-contract tx-sender) none))
         (map-set payment-plans
             plan-id
             {
@@ -67,6 +70,7 @@
         (plan (unwrap! (map-get? payment-plans plan-id) ERR_PAYMENT_PLAN_NOT_FOUND))
     )
         (asserts! (>= block-height (get next-due-block plan)) ERR_PAYMENT_NOT_DUE)
+        (try! (contract-call? .sbtc transfer amount tx-sender (as-contract tx-sender) none))
         (let (
             (new-instalments-paid (if (>= amount (get instalment-amount plan))
                                         (+ (get instalments-paid plan) u1)
@@ -91,38 +95,5 @@
             )
             (ok new-balance)
         )
-    )
-)
-
-;; Verify payments
-(define-read-only (verify-payment
-    (plan-id uint)
-)
-    (let (
-        (plan (unwrap-panic (map-get? payment-plans plan-id)))
-    )
-        (if (and
-            (is-eq (get instalments-paid plan) (get number-of-instalments plan))
-            (is-eq (get remaining-balance plan) u0))
-            (ok true)
-            (err ERR_INVALID_PAYMENT)
-        )
-    )
-)
-
-;; Function to apply penalties for late payments
-(define-public (apply-penalty
-    (plan-id uint)
-    (penalty-amount uint)
-)
-    (let (
-        (plan (unwrap! (map-get? payment-plans plan-id) ERR_PAYMENT_PLAN_NOT_FOUND))
-    )
-        (asserts! (< block-height (get next-due-block plan)) ERR_PAYMENT_NOT_DUE)
-        (map-set payment-plans
-            plan-id
-            (merge plan {penalties: (+ (get penalties plan) penalty-amount)})
-        )
-        (ok (get penalties plan))
     )
 )
