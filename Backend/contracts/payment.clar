@@ -61,7 +61,8 @@
     )
 )
 
-;; Function to receive payments
+
+
 (define-public (make-payment
     (plan-id uint)
     (amount uint)
@@ -93,7 +94,11 @@
                     next-due-block: new-next-due-block
                 })
             )
-            (ok new-balance)
+            ;; Check if the balance is now zero and call the completion function if true
+            (if (is-eq new-balance u0)
+                (try! (contract-call? .escrow settle))
+                (ok true)
+            )
         )
     )
 )

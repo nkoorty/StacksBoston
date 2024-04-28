@@ -41,7 +41,7 @@
                 (var-set collateral u0) ;; Reset the collateral after transfer
                 (ok (contract-call? .sbtc transfer collateral-amount (as-contract tx-sender) (unwrap-panic (var-get buyer)) none))
             )
-            (err err-not-authorized)
+            (err u4)
         )
     )
 )
