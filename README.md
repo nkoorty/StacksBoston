@@ -1,6 +1,8 @@
 # Coast
 Coast is a buy now pay later (BNPL) iOS app that transforms BTC into a practical payment option for everyday purchases. Users can buy electronic items by making a small upfront payment and collateralising the rest with BTC, then pay off the balance in regular instalments using fiat or BTC. Once fully repaid the BTC collateral is returned to the user.
 
+[Slides](https://www.canva.com/design/DAGDtSgS6Xk/k5Y6yNiizkcrVxcZNI7dbQ/edit?utm_content=DAGDtSgS6Xk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
 # Images
 
 <img src=https://github.com/nkoorty/StacksBoston/assets/22000925/49bc0982-1588-437b-99de-196244ba245a width=16% >
