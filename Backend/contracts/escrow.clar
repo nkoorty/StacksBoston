@@ -1,4 +1,3 @@
-
 ;; Contract principal addresses
 (define-constant contract-owner tx-sender)
 (define-data-var buyer (optional principal) none)
@@ -14,7 +13,7 @@
 
 (define-public (load-collateral (amount uint))
     (begin
-        (try! (stx-transfer? amount tx-sender (as-contract tx-sender)))
+        (try! (contract-call? .sbtc transfer amount tx-sender (as-contract tx-sender) none))
         (var-set collateral (+ (var-get collateral) amount))
         (var-set buyer (some tx-sender))
         (ok true)
@@ -27,7 +26,7 @@
         (if (is-eq (some tx-sender) (var-get authorized-contract))
             (let ((collateral-amount (var-get collateral)))
                 (var-set collateral u0) ;; Reset the collateral after transfer
-                (ok (stx-transfer? collateral-amount (as-contract tx-sender) (unwrap-panic (var-get seller))))
+                (ok (contract-call? .sbtc transfer collateral-amount (as-contract tx-sender) (unwrap-panic (var-get seller)) none))
             )
             (err err-not-authorized)
         )
@@ -40,7 +39,7 @@
         (if (is-eq (some tx-sender) (var-get authorized-contract))
             (let ((collateral-amount (var-get collateral)))
                 (var-set collateral u0) ;; Reset the collateral after transfer
-                (ok (stx-transfer? collateral-amount (as-contract tx-sender) (unwrap-panic (var-get buyer))))
+                (ok (contract-call? .sbtc transfer collateral-amount (as-contract tx-sender) (unwrap-panic (var-get buyer)) none))
             )
             (err err-not-authorized)
         )
