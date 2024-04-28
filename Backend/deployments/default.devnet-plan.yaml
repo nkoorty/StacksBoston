@@ -8,43 +8,11 @@ plan:
   batches:
     - id: 0
       transactions:
-        - requirement-publish:
-            contract-id: SP3FBR2AGK5H9QBDH3EEN6DF8EK8JY7RX8QJ5SVTE.sip-010-trait-ft-standard
-            remap-sender: ST1SJ3DTE5DN7X54YDH5D64R3BCB6A2AG2ZQ8YPD5
-            remap-principals:
-              SP3FBR2AGK5H9QBDH3EEN6DF8EK8JY7RX8QJ5SVTE: ST1SJ3DTE5DN7X54YDH5D64R3BCB6A2AG2ZQ8YPD5
-            cost: 8400
-            path: "./.cache/requirements/SP3FBR2AGK5H9QBDH3EEN6DF8EK8JY7RX8QJ5SVTE.sip-010-trait-ft-standard.clar"
-            clarity-version: 1
-      epoch: "2.0"
-    - id: 1
-      transactions:
         - contract-publish:
-            contract-name: clarity-bitcoin-mini
+            contract-name: payments
             expected-sender: ST1SJ3DTE5DN7X54YDH5D64R3BCB6A2AG2ZQ8YPD5
-            cost: 52940
-            path: contracts/clarity-bitcoin-mini.clar
-            anchor-block-only: true
-            clarity-version: 2
-        - contract-publish:
-            contract-name: sbtc
-            expected-sender: ST1SJ3DTE5DN7X54YDH5D64R3BCB6A2AG2ZQ8YPD5
-            cost: 47630
-            path: contracts/sbtc.clar
-            anchor-block-only: true
-            clarity-version: 2
-        - contract-publish:
-            contract-name: escrow
-            expected-sender: ST1SJ3DTE5DN7X54YDH5D64R3BCB6A2AG2ZQ8YPD5
-            cost: 21190
-            path: contracts/escrow.clar
-            anchor-block-only: true
-            clarity-version: 2
-        - contract-publish:
-            contract-name: payment
-            expected-sender: ST1SJ3DTE5DN7X54YDH5D64R3BCB6A2AG2ZQ8YPD5
-            cost: 36720
-            path: contracts/payment.clar
+            cost: 35890
+            path: contracts/payments.clar
             anchor-block-only: true
             clarity-version: 2
       epoch: "2.5"

@@ -47,7 +47,7 @@ def make_payment():
         print(data)
         plan_id = data["plan-id"]
         amount = data["amount"]
-        stx_command = f'stx call_contract_func ST1SJ3DTE5DN7X54YDH5D64R3BCB6A2AG2ZQ8YPD5 payment make-payment 1000 {get_nonce()} 7287ba251d44a4d3fd9276c88ce34c5c52a038955511cccaf77e61068649c17801 -I "http://localhost:3999" -t'
+        stx_command = f'stx call_contract_func ST1SJ3DTE5DN7X54YDH5D64R3BCB6A2AG2ZQ8YPD5 payment make-payment 1000 14 7287ba251d44a4d3fd9276c88ce34c5c52a038955511cccaf77e61068649c17801 -I "http://localhost:3999" -t'
         # Start the process
         process = subprocess.Popen(["bash", "-c", stx_command], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 
