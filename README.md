@@ -3,14 +3,12 @@ Coast is a buy now pay later (BNPL) iOS app that transforms BTC into a practical
 
 # Images
 
-![image](https://github.com/nkoorty/StacksBoston/assets/22000925/49bc0982-1588-437b-99de-196244ba245a)
-![image](https://github.com/nkoorty/StacksBoston/assets/22000925/aa3e8be7-f652-4ed5-85b7-fdb173184263)
-![image](https://github.com/nkoorty/StacksBoston/assets/22000925/f5c0a743-bd66-46dd-9e23-03369a79c62d)
-![image](https://github.com/nkoorty/StacksBoston/assets/22000925/5ecb4a1b-05e7-4845-9aca-2dd02463facb)
-![image](https://github.com/nkoorty/StacksBoston/assets/22000925/732c565e-32b1-4112-8b73-c1dd2a9d6daf)
-![image](https://github.com/nkoorty/StacksBoston/assets/22000925/9403921e-f04a-4b2d-b146-9c8284e78e3a)
-
-
+<img src=https://github.com/nkoorty/StacksBoston/assets/22000925/49bc0982-1588-437b-99de-196244ba245a width=16% >
+<img src=https://github.com/nkoorty/StacksBoston/assets/22000925/aa3e8be7-f652-4ed5-85b7-fdb173184263 width=16% >
+<img src=https://github.com/nkoorty/StacksBoston/assets/22000925/f5c0a743-bd66-46dd-9e23-03369a79c62d width=16% >
+<img src=https://github.com/nkoorty/StacksBoston/assets/22000925/5ecb4a1b-05e7-4845-9aca-2dd02463facb width=16% >
+<img src=https://github.com/nkoorty/StacksBoston/assets/22000925/732c565e-32b1-4112-8b73-c1dd2a9d6daf width=16% >
+<img src=https://github.com/nkoorty/StacksBoston/assets/22000925/9403921e-f04a-4b2d-b146-9c8284e78e3a width=16% >
 
 # Overview
 
